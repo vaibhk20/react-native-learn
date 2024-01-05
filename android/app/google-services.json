@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "697297557369",
+    "project_id": "firesbase-learning",
+    "storage_bucket": "firesbase-learning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697297557369:android:2e390e534b499351dc81a8",
+        "android_client_info": {
+          "package_name": "com.expofirebase.expo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOIJFSVGdLyKDQ-EiaeyLMJ_IQ9hZ_Lak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
