@@ -2,8 +2,19 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import firestore from "@react-native-firebase/firestore";
 
 function HomeScreen({ navigation }) {
+  const readData = async () => {
+    const users = firestore().collection("users");
+    const response = await users.get();
+    let responseArray = [];
+    response.forEach((doc) => {
+      responseArray.push(doc.data());
+    });
+    console.log("db data------->", responseArray);
+  };
+  readData();
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text onPress={() => navigation.navigate("Details")}>Home Screen</Text>
