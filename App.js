@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import firestore from "@react-native-firebase/firestore";
+import LoginForm from "./src/components/LoginForm";
+import auth from "@react-native-firebase/auth";
 
 function HomeScreen({ navigation }) {
   const readData = async () => {
@@ -37,7 +39,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Details" component={LoginForm} />
       </Stack.Navigator>
     </NavigationContainer>
   );
