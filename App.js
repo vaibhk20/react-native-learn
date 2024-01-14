@@ -2,9 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import firestore from "@react-native-firebase/firestore";
-import LoginForm from "./src/components/LoginForm";
-import auth from "@react-native-firebase/auth";
+import TabsLayout from "./src/screens/tabs/TabsLayout";
 
 function HomeScreen({ navigation }) {
   const readData = async () => {
@@ -19,7 +19,7 @@ function HomeScreen({ navigation }) {
   readData();
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text onPress={() => navigation.navigate("Details")}>Home Screen</Text>
+      <Text onPress={() => navigation.navigate("Details")}>Login Screen</Text>
     </View>
   );
 }
@@ -36,12 +36,26 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={LoginForm} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        {/* <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Details" component={LoginForm} />
+          <Stack.Screen
+            name="OTPScreen"
+            component={OTPScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Dashboard"
+            component={Dashboard}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator> */}
+        <TabsLayout />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
